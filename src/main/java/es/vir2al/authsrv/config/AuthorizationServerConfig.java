@@ -18,10 +18,15 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import es.vir2al.authsrv.services.AplicacionesServiceImpl;
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
+	@Autowired
+	private AplicacionesServiceImpl aplicacionesService;
+	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
@@ -49,13 +54,20 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 	
 		//TODO: registrar el acceso de cada aplicacion
+		/*
 		clients.inMemory().withClient("testapp")
 		  .secret(this.passwordEncoder.encode("12345"))
 		  .scopes("read","write")
 		  .authorizedGrantTypes("password","refresh_token")
 		  .accessTokenValiditySeconds(3600) // 1 hora - va en segundos
 		  .refreshTokenValiditySeconds(3600);
+		  */
+		
+		clients.withClientDetails(this.aplicacionesService);
+		
+		
 	}
+	
 	
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {

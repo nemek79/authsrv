@@ -24,6 +24,7 @@ public class InfoAdicionalToken implements TokenEnhancer {
 
 		Usuario usuario = usuarioSRV.findByUsername(authentication.getName());
 		
+		
 		Map<String, Object> info = new HashMap<>();
 		
 		//TODO: revisar la información que se introduce en el token
@@ -38,6 +39,9 @@ public class InfoAdicionalToken implements TokenEnhancer {
 		info.put("prueba", "info de prueba");
 		
 		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
+
+		//for get cliente Id
+		//System.out.println(authentication.getOAuth2Request().getClientId());
 		
 		return accessToken;
 

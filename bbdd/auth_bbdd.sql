@@ -15,8 +15,8 @@ CREATE TABLE t_roles
 
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO roles  VALUES (null,'ROLE_USER');
-INSERT INTO roles VALUES (null,'ROLE_ADMIN');
+INSERT INTO t_roles  VALUES (null,'ROLE_USER');
+INSERT INTO t_roles VALUES (null,'ROLE_ADMIN');
 
 CREATE TABLE t_usuarios 
 (
@@ -32,7 +32,7 @@ CREATE TABLE t_usuarios
 	
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO usuarios (username,password,enabled,nombre, apellidos, email) VALUES ('david','$2a$10$sEvh4AVbaNnSDokcOI7tDecWWoutEL/ULITe9xzwGVylC/h87dIiW',1,'david','alonso sanchez','davidalonso79@gmail.com');
+INSERT INTO t_usuarios (username,password,enabled,nombre, apellidos, email) VALUES ('david','$2a$10$sEvh4AVbaNnSDokcOI7tDecWWoutEL/ULITe9xzwGVylC/h87dIiW',1,'david','alonso sanchez','davidalonso79@gmail.com');
 
 CREATE TABLE tr_usuarios_roles(
 
@@ -44,3 +44,17 @@ CREATE TABLE tr_usuarios_roles(
 
 INSERT INTO tr_usuarios_roles VALUES (1,1);
 INSERT INTO tr_usuarios_roles VALUES (1,2);
+
+
+CREATE TABLE t_aplicaciones 
+(
+	id						INT(8)			NOT NULL AUTO_INCREMENT,
+	clientId				VARCHAR(32)		NOT NULL,
+	clienteSecret			VARCHAR(128)	NOT NULL,
+	clienteShort			VARCHAR(4)		NOT NULL,
+	
+	PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO t_aplicaciones VALUES (null,'TESTAPP','$2a$10$sEvh4AVbaNnSDokcOI7tDecWWoutEL/ULITe9xzwGVylC/h87dIiW','TEST');
+
