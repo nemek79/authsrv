@@ -11,7 +11,7 @@ import es.vir2al.authsrv.models.Aplicacion;
 import es.vir2al.authsrv.repositories.AplicacionesDAO;
 
 @Service
-public class AplicacionesServiceImpl implements ClientDetailsService  {
+public class AplicacionesServiceImpl implements AplicacionesService, ClientDetailsService  {
 
 	@Autowired
 	private AplicacionesDAO aplicacionesDAO;
