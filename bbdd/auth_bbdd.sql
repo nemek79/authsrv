@@ -49,9 +49,9 @@ INSERT INTO tr_usuarios_roles VALUES (1,2);
 CREATE TABLE t_aplicaciones 
 (
 	id						INT(8)			NOT NULL AUTO_INCREMENT,
-	clientId				VARCHAR(32)		NOT NULL,
-	clienteSecret			VARCHAR(128)	NOT NULL,
-	clienteShort			VARCHAR(4)		NOT NULL,
+	client_id				VARCHAR(32)		NOT NULL,
+	client_secret			VARCHAR(128)	NOT NULL,
+	client_short			VARCHAR(4)		NOT NULL,
 	
 	PRIMARY KEY(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
