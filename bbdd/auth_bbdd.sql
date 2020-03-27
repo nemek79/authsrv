@@ -58,3 +58,13 @@ CREATE TABLE t_aplicaciones
 
 INSERT INTO t_aplicaciones VALUES (null,'TESTAPP','$2a$10$sEvh4AVbaNnSDokcOI7tDecWWoutEL/ULITe9xzwGVylC/h87dIiW','TEST');
 
+-- alamierda
+INSERT INTO t_usuarios VALUES
+(null, 'admin', '$2y$12$nXa42EI76ZZluJ.bIhzOMedyMiPJwr9huhvbnTropzgB97WL7aae6',1,'admin',null,'admin@vir2al.es');
+
+INSERT INTO tr_usuarios_roles VALUES 
+(2,2);
+
+INSERT INTO tr_usuarios_roles VALUES 
+(2,1);
+
