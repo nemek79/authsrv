@@ -10,9 +10,6 @@ CREATE TABLE t_roles
 
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO t_roles  VALUES (null,'ROLE_USER');
-INSERT INTO t_roles VALUES (null,'ROLE_ADMIN');
-
 CREATE TABLE t_usuarios 
 (
 	id						INT(8)			NOT NULL AUTO_INCREMENT,
@@ -27,7 +24,6 @@ CREATE TABLE t_usuarios
 	
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO t_usuarios (username,password,enabled,nombre, apellidos, email) VALUES ('david','$2a$10$sEvh4AVbaNnSDokcOI7tDecWWoutEL/ULITe9xzwGVylC/h87dIiW',1,'david','alonso sanchez','davidalonso79@gmail.com');
 
 CREATE TABLE tr_usuarios_roles(
 
@@ -36,9 +32,6 @@ CREATE TABLE tr_usuarios_roles(
 
 
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO tr_usuarios_roles VALUES (1,1);
-INSERT INTO tr_usuarios_roles VALUES (1,2);
 
 
 CREATE TABLE t_aplicaciones 
@@ -53,13 +46,28 @@ CREATE TABLE t_aplicaciones
 
 INSERT INTO t_aplicaciones VALUES (null,'TESTAPP','$2a$10$sEvh4AVbaNnSDokcOI7tDecWWoutEL/ULITe9xzwGVylC/h87dIiW','TEST');
 
--- alamierda
 INSERT INTO t_usuarios VALUES
 (null, 'admin', '$2y$12$nXa42EI76ZZluJ.bIhzOMedyMiPJwr9huhvbnTropzgB97WL7aae6',1,'admin',null,'admin@vir2al.es');
+
+INSERT INTO t_usuarios (username,password,enabled,nombre, apellidos, email) VALUES 
+('david','$2y$12$PNrcXMyeSoVqyubU6Ahvyug/Ap5cKDASRpsi6JcAb8hoK8WWQeVQW',1,'david','alonso sanchez','davidalonso79@gmail.com');
+
+INSERT INTO t_usuarios (username,password,enabled,nombre, apellidos, email) VALUES 
+('maira','$2y$12$boRX5w2fSPPcMcieVjehfO.g777Zt9TB5A2Ocor6tYOU7A7NpBq8a',1,'Maira Ebelina','Escalante Reyes','mairaescalante1912@gmail.com');
+
+INSERT INTO t_roles VALUES (null,'ROLE_ADMIN');
+INSERT INTO t_roles  VALUES (null,'ROLE_USER');
+
+
+INSERT INTO tr_usuarios_roles VALUES 
+(1,1);
+
+INSERT INTO tr_usuarios_roles VALUES 
+(1,2);
 
 INSERT INTO tr_usuarios_roles VALUES 
 (2,2);
 
 INSERT INTO tr_usuarios_roles VALUES 
-(2,1);
+(3,2);
 
